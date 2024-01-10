@@ -1,3 +1,4 @@
+import "package:bible_study_resources/pages/manna_page.dart";
 import "package:flutter/material.dart";
 
 class SongsNightPage extends StatefulWidget {
@@ -8,8 +9,11 @@ class SongsNightPage extends StatefulWidget {
 }
 
 class _SongsNightPageState extends State<SongsNightPage> {
+  final int NIGHT_MANNA = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return MannaPage(
+      MANNA_TYPE: NIGHT_MANNA,
+    );
   }
 }

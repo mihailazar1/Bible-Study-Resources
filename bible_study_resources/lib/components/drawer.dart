@@ -8,6 +8,8 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const int DAILY_MANNA = 0;
+    const int NIGHT_MANNA = 1;
     return Drawer(
         backgroundColor: Colors.grey[200],
         child: Column(
@@ -34,7 +36,9 @@ class MyDrawer extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MannaPage(),
+                    builder: (context) => MannaPage(
+                      MANNA_TYPE: DAILY_MANNA,
+                    ),
                   ),
                 );
               },
@@ -48,7 +52,9 @@ class MyDrawer extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SongsNightPage(),
+                    builder: (context) => MannaPage(
+                      MANNA_TYPE: NIGHT_MANNA,
+                    ),
                   ),
                 );
               },

@@ -1,5 +1,6 @@
 import 'package:bible_study_resources/components/drawer.dart';
 import 'package:bible_study_resources/components/DailyManna/manna_box.dart';
+import 'package:bible_study_resources/pages/daily_manna_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.blue,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.menu,
             color: Colors.white,
             size: 30,
@@ -32,9 +33,17 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: Colors.grey[200],
       drawer: const MyDrawer(),
-      body: const Column(
+      body: Column(
         children: [
-          MannaBox(),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DailyMannaPage()),
+              );
+            },
+            child: MannaBox(),
+          )
         ],
       ),
     );

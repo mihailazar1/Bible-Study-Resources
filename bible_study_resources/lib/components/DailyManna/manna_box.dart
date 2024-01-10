@@ -8,36 +8,32 @@ class MannaBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MannaPage()),
-        );
-      },
-      child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Stack(
-            children: [
-              Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
+    return Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Stack(
+          children: [
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
               ),
-              const Positioned(
-                top: 10,
-                left: 10,
-                child: MannaBoxHeader(),
+            ),
+            const Positioned(
+              top: 10,
+              left: 10,
+              child: MannaBoxHeader(
+                MANNA_TYPE: 0,
               ),
-              const Positioned(
-                top: 80,
-                left: 10,
-                child: MannaBoxBody(),
+            ),
+            const Positioned(
+              top: 80,
+              left: 10,
+              child: MannaBoxBody(
+                MANNA_TYPE: 0,
               ),
-            ],
-          )),
-    );
+            ),
+          ],
+        ));
   }
 }

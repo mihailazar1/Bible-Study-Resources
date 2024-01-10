@@ -8,6 +8,9 @@ import 'package:tuple/tuple.dart';
 
 class MannaPage extends StatefulWidget {
   double fontSize = 21;
+  final int MANNA_TYPE;
+
+  MannaPage({super.key, required this.MANNA_TYPE});
 
   @override
   _MyPageViewState createState() => _MyPageViewState();
@@ -27,7 +30,8 @@ class _MyPageViewState extends State<MannaPage> {
   @override
   void initState() {
     super.initState();
-    mannaContent = dbHelper.getMannaContent(now.month, now.day);
+    mannaContent =
+        dbHelper.getMannaContent(now.month, now.day, widget.MANNA_TYPE);
   }
 
   final PageController _controller =
@@ -47,12 +51,14 @@ class _MyPageViewState extends State<MannaPage> {
 
     String monthName = DateFormat('MMMM').format(DateTime(0, month));
 
-    final mannaTitle = await dbHelper.getMannaDisplayTitle(month, day);
-    final mannaOnlyVerse =
-        await dbHelper.getMannaVerse(month, day, VERSE_NO_REFERENCE);
-    final mannaReference =
-        await dbHelper.getMannaVerse(month, day, ONLY_REFERENCE);
-    final mannaContent = await dbHelper.getMannaContent(month, day);
+    final mannaTitle =
+        await dbHelper.getMannaDisplayTitle(month, day, widget.MANNA_TYPE);
+    final mannaOnlyVerse = await dbHelper.getMannaVerse(
+        month, day, VERSE_NO_REFERENCE, widget.MANNA_TYPE);
+    final mannaReference = await dbHelper.getMannaVerse(
+        month, day, ONLY_REFERENCE, widget.MANNA_TYPE);
+    final mannaContent =
+        await dbHelper.getMannaContent(month, day, widget.MANNA_TYPE);
 
     return Tuple4(monthName, mannaOnlyVerse, mannaReference, mannaContent);
   }
@@ -71,7 +77,9 @@ class _MyPageViewState extends State<MannaPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Daily Heavenly Manna',
+          widget.MANNA_TYPE == 0
+              ? 'Daily Heavenly Manna'
+              : 'Songs in the Night',
           style: GoogleFonts.karla(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -115,6 +123,7 @@ class _MyPageViewState extends State<MannaPage> {
             child: Opacity(
               opacity: 0.4,
               child: Slider(
+                activeColor: Colors.indigo,
                 value: widget.fontSize,
                 min: 14,
                 max: 28,

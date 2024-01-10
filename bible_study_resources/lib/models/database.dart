@@ -58,7 +58,8 @@ class DatabaseHelper {
     });
   }
 
-  Future<String> getMannaDisplayTitle(int month_number, int day) async {
+  Future<String> getMannaDisplayTitle(
+      int month_number, int day, int MANNA_TYPE) async {
     final db = await database;
 
     String whereClause = 'month_number = ? AND day = ?';
@@ -71,11 +72,11 @@ class DatabaseHelper {
       whereArgs: whereArgs,
     );
 
-    return maps[0]['display_title'] as String;
+    return maps[MANNA_TYPE]['display_title'] as String;
   }
 
   Future<String> getMannaVerse(
-      int month_number, int day, int partOfVerse) async {
+      int month_number, int day, int partOfVerse, int MANNA_TYPE) async {
     final db = await database;
 
     String whereClause = 'month_number = ? AND day = ?';
@@ -89,13 +90,13 @@ class DatabaseHelper {
     );
 
     String reference = ' - ' +
-        maps[0]['book'] +
+        maps[MANNA_TYPE]['book'] +
         ' ' +
-        maps[0]['chapter'] +
+        maps[MANNA_TYPE]['chapter'] +
         ':' +
-        maps[0]['verse'];
+        maps[MANNA_TYPE]['verse'];
 
-    String onlyVerse = maps[0]['verse_text'];
+    String onlyVerse = maps[MANNA_TYPE]['verse_text'];
 
     if (partOfVerse == 0) {
       return onlyVerse + reference;
@@ -106,7 +107,8 @@ class DatabaseHelper {
     }
   }
 
-  Future<String> getMannaContent(int month_number, int day) async {
+  Future<String> getMannaContent(
+      int month_number, int day, int MANNA_TYPE) async {
     final db = await database;
 
     String whereClause = 'month_number = ? AND day = ?';
@@ -119,12 +121,7 @@ class DatabaseHelper {
       whereArgs: whereArgs,
     );
 
-    String content = maps[0]['content'];
-    String defaultHerald = 'R0000';
-
-    if (maps[0]['content'].toString() != defaultHerald) {
-      content += ' - ' + maps[0]['herald'];
-    }
+    String content = maps[MANNA_TYPE]['content'];
 
     return content;
   }

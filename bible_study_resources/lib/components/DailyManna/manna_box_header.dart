@@ -3,7 +3,8 @@ import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
 class MannaBoxHeader extends StatefulWidget {
-  const MannaBoxHeader({super.key});
+  final int MANNA_TYPE;
+  const MannaBoxHeader({super.key, required this.MANNA_TYPE});
 
   @override
   State<MannaBoxHeader> createState() => _MannaBoxHeaderState();
@@ -11,6 +12,7 @@ class MannaBoxHeader extends StatefulWidget {
 
 class _MannaBoxHeaderState extends State<MannaBoxHeader> {
   final dbHelper = DatabaseHelper();
+
   Future<String>? mannaTitle;
 
   @override
@@ -18,7 +20,8 @@ class _MannaBoxHeaderState extends State<MannaBoxHeader> {
     super.initState();
 
     DateTime now = DateTime.now();
-    mannaTitle = dbHelper.getMannaDisplayTitle(now.month, now.day);
+    mannaTitle =
+        dbHelper.getMannaDisplayTitle(now.month, now.day, widget.MANNA_TYPE);
   }
 
   @override
