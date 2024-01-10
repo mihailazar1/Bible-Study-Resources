@@ -1,5 +1,6 @@
 import "package:bible_study_resources/components/drawer_tile.dart";
 import 'package:bible_study_resources/pages/manna_page.dart';
+import "package:bible_study_resources/pages/songs_night_page.dart";
 import "package:flutter/material.dart";
 
 class MyDrawer extends StatelessWidget {
@@ -34,6 +35,20 @@ class MyDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => MannaPage(),
+                  ),
+                );
+              },
+            ),
+
+            DrawerTile(
+              title: "Songs in the Night",
+              leading: const Icon(Icons.book_online_outlined),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SongsNightPage(),
                   ),
                 );
               },

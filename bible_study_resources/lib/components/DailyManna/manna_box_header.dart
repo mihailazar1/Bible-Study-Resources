@@ -1,35 +1,30 @@
 import "package:bible_study_resources/models/database.dart";
-import "package:bible_study_resources/models/manna.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
-class MannaBoxBody extends StatefulWidget {
-  const MannaBoxBody({super.key});
+class MannaBoxHeader extends StatefulWidget {
+  const MannaBoxHeader({super.key});
 
   @override
-  State<MannaBoxBody> createState() => _MannaBoxBodyState();
+  State<MannaBoxHeader> createState() => _MannaBoxHeaderState();
 }
 
-class _MannaBoxBodyState extends State<MannaBoxBody> {
-  final int ALL_VERSE = 0;
-  final int VERSE_NO_REFERENCE = 1;
-  final int ONLY_REFERENCE = 2;
-
+class _MannaBoxHeaderState extends State<MannaBoxHeader> {
   final dbHelper = DatabaseHelper();
-  Future<String>? mannaVerse;
+  Future<String>? mannaTitle;
 
   @override
   void initState() {
     super.initState();
 
     DateTime now = DateTime.now();
-    mannaVerse = dbHelper.getMannaVerse(now.month, now.day, ALL_VERSE);
+    mannaTitle = dbHelper.getMannaDisplayTitle(now.month, now.day);
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<String>(
-      future: mannaVerse,
+      future: mannaTitle,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // While waiting for the data, you can display a loading indicator.
@@ -41,20 +36,24 @@ class _MannaBoxBodyState extends State<MannaBoxBody> {
           // Data is ready
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             // Use the first item from the list (assuming it contains the desired data)
-            String verse = snapshot.data!;
+            String displayTitle = snapshot.data!;
 
-            return Container(
-              width: MediaQuery.of(context).size.width - 30,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  Text(
-                    verse,
-                    style: GoogleFonts.karla(
-                        fontSize: 19, fontWeight: FontWeight.bold),
+            return Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Image.asset(
+                    'lib/assets/manna_icon.png',
+                    height: 60,
+                    width: 60,
                   ),
-                ],
-              ),
+                ),
+                Text(
+                  displayTitle,
+                  style: GoogleFonts.karla(
+                      fontSize: 19, color: Colors.indigo[800]),
+                ),
+              ],
             );
           } else {
             // Handle the case where no data is available
@@ -65,15 +64,3 @@ class _MannaBoxBodyState extends State<MannaBoxBody> {
     );
   }
 }
-
-
-/*
-
-
-
-
-
-
-    
-
-*/

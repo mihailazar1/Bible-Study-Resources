@@ -1,6 +1,5 @@
 import 'package:bible_study_resources/components/drawer.dart';
-import 'package:bible_study_resources/components/manna_box.dart';
-import 'package:bible_study_resources/pages/manna_page.dart';
+import 'package:bible_study_resources/components/DailyManna/manna_box.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
