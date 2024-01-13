@@ -51,8 +51,6 @@ class _MyPageViewState extends State<MannaPage> {
 
     String monthName = DateFormat('MMMM').format(DateTime(0, month));
 
-    final mannaTitle =
-        await dbHelper.getMannaDisplayTitle(month, day, widget.MANNA_TYPE);
     final mannaOnlyVerse = await dbHelper.getMannaVerse(
         month, day, VERSE_NO_REFERENCE, widget.MANNA_TYPE);
     final mannaReference = await dbHelper.getMannaVerse(
@@ -73,6 +71,7 @@ class _MyPageViewState extends State<MannaPage> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final sliderHeight = 50.0;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -140,84 +139,3 @@ class _MyPageViewState extends State<MannaPage> {
     );
   }
 }
-
-/* 
-
-
-
-*/
-
-
-
-/* 
-
-
-
-Scaffold(
-      appBar: AppBar(
-        title: Text('My App'),
-      ),
-      body: PageView.builder(
-        controller: _controller,
-        itemBuilder: (BuildContext context, int index) {
-          return Center(
-            child: Text('Text for day ${index + 1}'),
-          );
-        },
-        itemCount: 365,
-      ),
-    );
-
-
-
-
-*/
-
-
-/*
-
-body: GestureDetector(
-        onPanUpdate: (data) {
-          if (data.delta.dx > 0) {
-            _controller.animateToPage(_controller.page!.toInt() - 1,
-                duration: Duration(milliseconds: 300), curve: Curves.ease);
-          }
-
-          if (data.delta.dx < 0) {
-            _controller.animateToPage(_controller.page!.toInt() + 1,
-                duration: Duration(milliseconds: 300),
-                curve: Curves.linearToEaseOut);
-          }
-        },
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: _controller,
-          itemBuilder: (context, index) {
-            final date =
-                DateTime(DateTime.now().year, 1, 1).add(Duration(days: index));
-
-            return FutureBuilder<Tuple2<String, String>>(
-              future: _getMannaContent(date.day),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Center(
-                    child: Column(
-                      children: [
-                        Text(snapshot.data!.item1,
-                            style: TextStyle(fontSize: 15)),
-                        const SizedBox(height: 20),
-                        Text(snapshot.data!.item2,
-                            style: TextStyle(fontSize: 15)),
-                      ],
-                    ),
-                  );
-                } else {
-                  return Center();
-                }
-              },
-            );
-          },
-        ),
-      ),
-
- */

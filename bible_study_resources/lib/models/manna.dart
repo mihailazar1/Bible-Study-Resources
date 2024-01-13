@@ -1,16 +1,16 @@
 // ignore_for_file: non_constant_identifier_names
 
 class Manna {
-  final int id; //
-  final int day; //
-  final int month_number; //
+  final int id;
+  final int day;
+  final int month_number;
   final String month_name;
   final String display_title;
   final String book;
-  final int book_id; //
-  final String chapter; //
+  final int book_id;
+  final String chapter;
   final String verse;
-  final int verse_id; //
+  final int verse_id;
   final String verse_text;
   final String content;
   final String lang;

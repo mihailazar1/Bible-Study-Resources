@@ -13,7 +13,7 @@ class MannaBox extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: 200,
+              height: 220,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),

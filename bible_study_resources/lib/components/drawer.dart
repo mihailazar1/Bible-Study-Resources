@@ -1,4 +1,6 @@
 import "package:bible_study_resources/components/drawer_tile.dart";
+import "package:bible_study_resources/models/api_connection.dart";
+import "package:bible_study_resources/pages/audio_player_test.dart";
 import 'package:bible_study_resources/pages/manna_page.dart';
 import "package:bible_study_resources/pages/songs_night_page.dart";
 import "package:flutter/material.dart";
@@ -55,6 +57,20 @@ class MyDrawer extends StatelessWidget {
                     builder: (context) => MannaPage(
                       MANNA_TYPE: NIGHT_MANNA,
                     ),
+                  ),
+                );
+              },
+            ),
+
+            DrawerTile(
+              title: "Latest Sermons",
+              leading: const Icon(Icons.audio_file),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ApiConnection(),
                   ),
                 );
               },

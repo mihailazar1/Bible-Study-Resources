@@ -30,7 +30,7 @@ class _MannaPageContentState extends State<MannaPageContent> {
       children: [
         const SizedBox(height: 10),
         Text(
-          widget.month + ' ' + widget.day,
+          '${widget.month} ${widget.day}',
           style: GoogleFonts.karla(
               fontSize: 21,
               fontWeight: FontWeight.bold,

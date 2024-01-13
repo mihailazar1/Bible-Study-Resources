@@ -60,7 +60,7 @@ class _MannaBoxHeaderState extends State<MannaBoxHeader> {
             );
           } else {
             // Handle the case where no data is available
-            return Text('No data available');
+            return const Text('No data available');
           }
         }
       },
