@@ -20,9 +20,7 @@ class DrawerTile extends StatelessWidget {
         title: Text(
           title,
           style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+              color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20),
         ),
         leading: leading,
         onTap: onTap,

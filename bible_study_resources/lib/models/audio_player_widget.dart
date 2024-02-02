@@ -46,7 +46,7 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
 
   @override
   Future<void> dispose() async {
-    super.dispose(); //change here
+    super.dispose(); 
     await audioPlayer.stop();
   }
 

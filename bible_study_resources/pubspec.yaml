@@ -74,7 +74,12 @@ flutter:
     - lib/assets/manna_icon.png
     - lib/assets/note.png
     - lib/assets/books.png
+    - lib/assets/book.png
+    - lib/assets/manna_daily.png
+    - lib/assets/manna_night.png
+    - lib/assets/sermon.png
     - lib/assets/manna.sqlite
+    - lib/assets/bible-sqlite.db
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,8 +1,7 @@
+import 'package:bible_study_resources/book_api/book_page_api.dart';
 import "package:bible_study_resources/components/drawer_tile.dart";
-import "package:bible_study_resources/models/api_connection.dart";
-import "package:bible_study_resources/pages/audio_player_test.dart";
+import 'package:bible_study_resources/pages/sermons_page.dart';
 import 'package:bible_study_resources/pages/manna_page.dart';
-import "package:bible_study_resources/pages/songs_night_page.dart";
 import "package:flutter/material.dart";
 
 class MyDrawer extends StatelessWidget {
@@ -25,14 +24,24 @@ class MyDrawer extends StatelessWidget {
 
             // notes tile
             DrawerTile(
-              title: "Bible",
-              leading: const Icon(Icons.book),
-              onTap: () => Navigator.pop(context),
+              title: "The Bible",
+              leading:
+                  Image.asset('lib/assets/book.png', height: 50, width: 50),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BookPageAPI(),
+                  ),
+                );
+              },
             ),
-
+            const SizedBox(height: 25),
             DrawerTile(
               title: "Daily Heavenly Manna",
-              leading: const Icon(Icons.book_outlined),
+              leading: Image.asset('lib/assets/manna_daily.png',
+                  height: 50, width: 50),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -45,10 +54,11 @@ class MyDrawer extends StatelessWidget {
                 );
               },
             ),
-
+            const SizedBox(height: 25),
             DrawerTile(
               title: "Songs in the Night",
-              leading: const Icon(Icons.book_online_outlined),
+              leading: Image.asset('lib/assets/manna_night.png',
+                  height: 50, width: 50),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -61,16 +71,17 @@ class MyDrawer extends StatelessWidget {
                 );
               },
             ),
-
+            const SizedBox(height: 25),
             DrawerTile(
               title: "Latest Sermons",
-              leading: const Icon(Icons.audio_file),
+              leading:
+                  Image.asset('lib/assets/sermon.png', height: 50, width: 50),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ApiConnection(),
+                    builder: (context) => SermonsPage(),
                   ),
                 );
               },

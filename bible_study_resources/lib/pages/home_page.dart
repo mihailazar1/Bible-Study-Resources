@@ -18,7 +18,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        title: Text('Bible Study Resources',
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 25)),
         elevation: 0,
+        centerTitle: true,
         backgroundColor: Colors.blue,
         leading: IconButton(
           icon: const Icon(

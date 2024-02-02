@@ -1,6 +1,5 @@
 import "package:bible_study_resources/components/DailyManna/manna_box_body.dart";
 import "package:bible_study_resources/components/DailyManna/manna_box_header.dart";
-import "package:bible_study_resources/pages/manna_page.dart";
 import "package:flutter/material.dart";
 
 class MannaBox extends StatelessWidget {

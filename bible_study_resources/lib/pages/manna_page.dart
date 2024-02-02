@@ -3,9 +3,9 @@ import "package:bible_study_resources/models/database.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 import 'package:intl/intl.dart';
-import "package:isar/isar.dart";
 import 'package:tuple/tuple.dart';
 
+// ignore: must_be_immutable
 class MannaPage extends StatefulWidget {
   double fontSize = 21;
   final int MANNA_TYPE;
@@ -117,21 +117,18 @@ class _MyPageViewState extends State<MannaPage> {
               },
             ),
           ),
-          Container(
+          SizedBox(
             height: sliderHeight,
-            child: Opacity(
-              opacity: 0.4,
-              child: Slider(
-                activeColor: Colors.indigo,
-                value: widget.fontSize,
-                min: 14,
-                max: 28,
-                onChanged: (value) {
-                  setState(() {
-                    widget.fontSize = value;
-                  });
-                },
-              ),
+            child: Slider(
+              activeColor: Colors.indigo,
+              value: widget.fontSize,
+              min: 14,
+              max: 28,
+              onChanged: (value) {
+                setState(() {
+                  widget.fontSize = value;
+                });
+              },
             ),
           ),
         ],
