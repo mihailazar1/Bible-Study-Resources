@@ -41,12 +41,7 @@ class _BookChapterState extends State<BookChapter> {
           } else {
             final data = snapshot.data;
 
-            // Extract the required information
             String reference = data!['reference'];
-            String text = data['text'];
-            String translationId = data['translation_id'];
-            String translationName = data['translation_name'];
-            String translationNote = data['translation_note'];
 
             // Extract verses
             List<dynamic> verses = data['verses'];
@@ -55,7 +50,6 @@ class _BookChapterState extends State<BookChapter> {
 
             return ListView(
               children: [
-                // Display your information here using Text widgets or other widgets
                 const SizedBox(height: 15),
                 Center(
                   child: Text('$reference',

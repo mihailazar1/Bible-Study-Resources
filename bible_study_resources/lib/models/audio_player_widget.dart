@@ -106,9 +106,7 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
               onChanged: (value) async {
                 final position = Duration(seconds: value.toInt());
                 await audioPlayer.seek(position);
-                // setState(() {
-                // audioPlayer.seek(Duration(seconds: value.toInt()));
-                // });
+     
               },
             ),
           ),

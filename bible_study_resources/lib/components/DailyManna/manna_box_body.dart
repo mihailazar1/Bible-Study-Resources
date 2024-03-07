@@ -33,7 +33,6 @@ class _MannaBoxBodyState extends State<MannaBoxBody> {
       future: mannaVerse,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // While waiting for the data, you can display a loading indicator.
           return CircularProgressIndicator();
         } else if (snapshot.hasError) {
           // Handle errors
@@ -58,7 +57,6 @@ class _MannaBoxBodyState extends State<MannaBoxBody> {
               ),
             );
           } else {
-            // Handle the case where no data is available
             return Text('No data available');
           }
         }

@@ -16,7 +16,7 @@ class SermonsPage extends StatefulWidget {
 class _SermonsPageState extends State<SermonsPage> {
   Future<List<Album>> fetchAlbum() async {
     final response = await http.get(
-        Uri.parse('https://55db-138-199-35-116.ngrok-free.app/api/sermons'));
+        Uri.parse('https://72ec-109-166-137-50.ngrok-free.app/api/sermons'));
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
@@ -31,7 +31,7 @@ class _SermonsPageState extends State<SermonsPage> {
 
       return albums;
     } else {
-      throw Exception('Failed to load album');
+      throw Exception('Error: Check your internet connection!');
     }
   }
 
