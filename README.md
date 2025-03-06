@@ -1,7 +1,7 @@
 <h1>Bible Study Resources</h1>
 
 <h2>Description</h2>
-The project consists of a collection of resources helpful for those interested in studying the Bible. These resources include access to the Bible through an API, commented Bible verses stored in a local SQLite database, and a catalog of sermons with their links stored in a SQL Server database. A Flask API endpoint is used for retrieving the sermons data from the database. The app has an inbuilt audio player.
+This project provides a collection of resources for those studying the Bible. It includes access to the Bible via an API, a local SQLite database storing commented Bible verses, and a catalog of sermons with links stored in a SQL Server database. Sermons are retrieved via a Flask API endpoint. Additionally, the app features a built-in audio player for an enhanced listening experience.
 
 <br />
 
